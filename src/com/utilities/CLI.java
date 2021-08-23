@@ -30,7 +30,7 @@ public class CLI {
      * <p>Uses Scanner to wait for user input to continue program execution.</p>
      */
     public static void pause(){
-        System.out.println("Press enter to continue...\n");
+        System.out.println("Press enter to continue...");
         scan.nextLine();
     }
 }
