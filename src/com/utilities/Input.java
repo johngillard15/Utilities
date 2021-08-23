@@ -17,6 +17,7 @@ public class Input {
 
         boolean validChoice;
         do{
+            System.out.print("-> ");
             input = scan.nextLine();
 
             validChoice = InputValidator.validateInt(input) && Integer.parseInt(input) >= 1 && Integer.parseInt(input) <= max;
@@ -33,6 +34,7 @@ public class Input {
 
         boolean validChoice;
         do{
+            System.out.print("-> ");
             input = scan.nextLine();
 
             validChoice = InputValidator.validateDouble(input) && Double.parseDouble(input) >= 1 && Double.parseDouble(input) <= max;
