@@ -9,6 +9,11 @@ package com.utilities;
  */
 
 public class InputValidator {
+
+    public InputValidator(){
+
+    }
+
     /**
      * <p>Attempts to convert the value of the passed parameter to an Integer value.</p>
      *
@@ -17,23 +22,23 @@ public class InputValidator {
      *
      * @throws NumberFormatException if the specified String value cannot be converted to an Integer
      */
-    public static boolean validateInt(String checkMe){
+    public static boolean validInt(String checkMe){
         try{
             Integer.parseInt(checkMe);
+            return true;
         }
         catch(NumberFormatException e){
             return false;
         }
-        return true;
     }
 
-    public static boolean validateDouble(String checkMe){
+    public static boolean validDouble(String checkMe){
         try{
             Double.parseDouble(checkMe);
+            return true;
         }
         catch(NumberFormatException e){
             return false;
         }
-        return true;
     }
 }
