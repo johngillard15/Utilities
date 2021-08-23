@@ -13,8 +13,8 @@ public class Input {
     public static int getInt(){
         return getInt(Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
-    public static int getInt(final int MAX){
-        return getInt(0, MAX);
+    public static int getInt(final int MIN){
+        return getInt(MIN, Integer.MAX_VALUE);
     }
     public static int getInt(final double MIN, final double MAX){
         String input;
@@ -34,8 +34,8 @@ public class Input {
     public static double getDouble(){
         return getDouble(Double.MIN_VALUE, Double.MAX_VALUE);
     }
-    public static double getDouble(final double MAX){
-        return getDouble(0, MAX);
+    public static double getDouble(final double MIN){
+        return getDouble(MIN, Double.MAX_VALUE);
     }
     public static Double getDouble(final double MIN, final double MAX){
         String input;
