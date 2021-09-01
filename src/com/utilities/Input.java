@@ -57,8 +57,7 @@ public class Input {
 
         boolean validInput;
         do{
-            System.out.print("-> ");
-            input = scan.nextLine();
+            input = getInput();
 
             validInput =
                     checkInt(input) && (Integer.parseInt(input) >= MIN && Integer.parseInt(input) <= MAX);
@@ -85,8 +84,7 @@ public class Input {
 
         boolean validInput;
         do{
-            System.out.print("-> ");
-            input = scan.nextLine();
+            input = getInput();
 
             validInput =
                     checkDouble(input) && (Double.parseDouble(input) >= MIN && Double.parseDouble(input) <= MAX);
