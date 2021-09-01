@@ -2,6 +2,16 @@ package com.utilities;
 
 import java.util.Scanner;
 
+/**
+ * <p>Contains methods that manage grabbing user input and handling invalid data. </p>
+ *
+ * <p>This class contains methods that handle runtime exceptions involving user input, mainly involving type conversions
+ * from String to a number format (Integer, Double, etc.).</p>
+ *
+ * @author John Gillard
+ * @since 13/8/2021
+ */
+
 public class Input {
     private static final Scanner scan = new Scanner(System.in);
 
@@ -25,9 +35,9 @@ public class Input {
             input = scan.nextLine();
 
             validChoice =
-                    InputValidator.validInt(input) && (Integer.parseInt(input) >= MIN && Integer.parseInt(input) <= MAX);
+                    checkInt(input) && (Integer.parseInt(input) >= MIN && Integer.parseInt(input) <= MAX);
 
-            if(!InputValidator.validInt(input))
+            if(!checkInt(input))
                 System.out.println("That is not a valid number value. Please try again");
             else if(MIN != Integer.MIN_VALUE && !(Integer.parseInt(input) >= MIN))
                 System.out.println("Value must be greater than or equal to " + MIN);
@@ -44,7 +54,7 @@ public class Input {
     public static double getDouble(final double MIN){
         return getDouble(MIN, Double.MAX_VALUE);
     }
-    public static Double getDouble(final double MIN, final double MAX){
+    public static double getDouble(final double MIN, final double MAX){
         String input;
 
         boolean validChoice;
@@ -53,9 +63,9 @@ public class Input {
             input = scan.nextLine();
 
             validChoice =
-                    InputValidator.validDouble(input) && (Double.parseDouble(input) >= MIN && Double.parseDouble(input) <= MAX);
+                    checkDouble(input) && (Double.parseDouble(input) >= MIN && Double.parseDouble(input) <= MAX);
 
-            if(!InputValidator.validDouble(input))
+            if(!checkDouble(input))
                 System.out.println("That is not a valid number value. Please try again");
             else if(MIN != Double.MIN_VALUE && !(Double.parseDouble(input) >= MIN))
                 System.out.println("Value must be greater than or equal to " + MIN);
@@ -64,5 +74,34 @@ public class Input {
         }while(!validChoice);
 
         return Double.parseDouble(input);
+    }
+
+    /**
+     * <p>Attempts to convert the value of the passed parameter to an Integer value.</p>
+     *
+     * @param checkMe the String to convert
+     * @return a boolean, which determines whether the value can be converted to an Integer
+     *
+     * @throws NumberFormatException if the specified String value cannot be converted to an Integer (not really
+     * anymore but it did)
+     */
+    public static boolean checkInt(String checkMe){
+        try{
+            Integer.parseInt(checkMe);
+            return true;
+        }
+        catch(NumberFormatException e){
+            return false;
+        }
+    }
+
+    public static boolean checkDouble(String checkMe){
+        try{
+            Double.parseDouble(checkMe);
+            return true;
+        }
+        catch(NumberFormatException e){
+            return false;
+        }
     }
 }
