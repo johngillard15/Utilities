@@ -1,5 +1,6 @@
 package com.utilities;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -15,9 +16,34 @@ import java.util.Scanner;
 public class Input {
     private static final Scanner scan = new Scanner(System.in);
 
-    public static String getString(){
+    public static String getInput(){
         System.out.print("-> ");
-        return scan.nextLine();
+        return scan.nextLine().trim();
+    }
+
+    public static String getString(String... validChoices){
+        return getString(false, validChoices);
+    }
+    public static String getString(boolean isCaseSensitive, String... validChoices){
+        String input;
+
+        boolean validInput;
+        do{
+            input = getInput();
+
+            validInput = validChoices.length == 0 || checkStringOptions(input, isCaseSensitive, validChoices);
+
+            if(!validInput)
+                System.out.printf("\"%s\" is not a valid option. Please try again.", input);
+        }while(!validInput);
+
+        return input;
+    }
+
+    public static boolean checkStringOptions(String input, boolean isCaseSensitive, String... validChoices){
+        if(isCaseSensitive)
+            return Arrays.asList(validChoices).contains(input);
+        return Arrays.stream(validChoices).anyMatch(input::equalsIgnoreCase);
     }
 
     public static int getInt(){
