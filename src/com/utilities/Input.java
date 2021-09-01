@@ -29,21 +29,21 @@ public class Input {
     public static int getInt(final int MIN, final int MAX){
         String input;
 
-        boolean validChoice;
+        boolean validInput;
         do{
             System.out.print("-> ");
             input = scan.nextLine();
 
-            validChoice =
+            validInput =
                     checkInt(input) && (Integer.parseInt(input) >= MIN && Integer.parseInt(input) <= MAX);
 
             if(!checkInt(input))
-                System.out.println("That is not a valid number value. Please try again");
+                System.out.printf("\"%s\" is not a valid number value. Please try again\n", input);
             else if(MIN != Integer.MIN_VALUE && !(Integer.parseInt(input) >= MIN))
                 System.out.println("Value must be greater than or equal to " + MIN);
             else if(MAX != Integer.MAX_VALUE && !(Integer.parseInt(input) <= MAX))
                 System.out.println("Value must be less than or equal to " + MAX);
-        }while(!validChoice);
+        }while(!validInput);
 
         return Integer.parseInt(input);
     }
@@ -57,12 +57,12 @@ public class Input {
     public static double getDouble(final double MIN, final double MAX){
         String input;
 
-        boolean validChoice;
+        boolean validInput;
         do{
             System.out.print("-> ");
             input = scan.nextLine();
 
-            validChoice =
+            validInput =
                     checkDouble(input) && (Double.parseDouble(input) >= MIN && Double.parseDouble(input) <= MAX);
 
             if(!checkDouble(input))
@@ -71,7 +71,7 @@ public class Input {
                 System.out.println("Value must be greater than or equal to " + MIN);
             else if(MAX != Double.MAX_VALUE && !(Double.parseDouble(input) <= MAX))
                 System.out.println("Value must be less than or equal to " + MAX);
-        }while(!validChoice);
+        }while(!validInput);
 
         return Double.parseDouble(input);
     }
