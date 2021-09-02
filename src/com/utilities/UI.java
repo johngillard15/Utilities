@@ -1,15 +1,26 @@
 package com.utilities;
 
-public class UI { // TODO: make different listing methods (bullet points, letters, numerals, etc.)
+public class UI {
 
+    /**
+     * <p>Creates a list out of the provided String arguments. Prints a numbered list by default.</p>
+     *
+     * @param listElements the information to listerate
+     */
     public static void listerator(String... listElements){
         listerator(1, 0, listElements);
     }
+    /**
+     * <p>Creates a list out of the provided String arguments. Supports multiple list types.</p>
+     *
+     * @param listType the kind of list to create (1 - number, 2 - letter, 3 - numeral, 4 - bullet)
+     * @param listElements the information to listerate
+     */
     public static void listerator(int listType, String... listElements){
         listerator(listType, 0, listElements);
     }
     /**
-     * <p></p>
+     * <p>Creates a list out of the provided String arguments. Supports multiple list types and indentation levels.</p>
      *
      * @param listType the kind of list to create (1 - number, 2 - letter, 3 - numeral, 4 - bullet)
      * @param subLevel level of indentation to apply to the list
@@ -45,6 +56,12 @@ public class UI { // TODO: make different listing methods (bullet points, letter
         }
     }
 
+    /**
+     * Converts a number to a String of letters.
+     *
+     * @param listNum the number to convert
+     * @return a String of letters representing the passed number value
+     */
     private static String getLetterValue(int listNum){
         int quot = listNum / 26;
         int letterNum = listNum % 26;
