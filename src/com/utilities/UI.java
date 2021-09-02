@@ -62,11 +62,11 @@ public class UI {
      * @param listNum the number to convert
      * @return a String of letters representing the passed number value
      */
-    private static String getLetterValue(int listNum){
-        int quot = listNum / 26;
+    public static String getLetterValue(int listNum){
+        int nextLetter = listNum / 26;
         int letterNum = listNum % 26;
         char letter = (char)((int)'A' + letterNum);
 
-        return (quot == 0 ? "" : getLetterValue(quot - 1)) + letter;
+        return (nextLetter == 0 ? "" : getLetterValue(nextLetter - 1)) + letter;
     }
 }
