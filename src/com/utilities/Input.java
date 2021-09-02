@@ -34,7 +34,7 @@ public class Input {
             validInput = validChoices.length == 0 || checkStringOptions(input, isCaseSensitive, validChoices);
 
             if(!validInput)
-                System.out.printf("\"%s\" is not a valid option. Please try again.", input);
+                System.out.printf("\"%s\" is not a valid option. Please try again.\n", input);
         }while(!validInput);
 
         return input;
