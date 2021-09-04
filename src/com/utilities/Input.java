@@ -100,6 +100,28 @@ public class Input {
         return Double.parseDouble(input);
     }
 
+    public static boolean getBoolean(){
+        String[] truthyValues = new String[]{
+            "true", "1", "y", "yes"
+        };
+        String[] falsyValues = new String[]{
+            "false", "0", "n", "no"
+        };
+
+        return getBoolean(truthyValues, falsyValues);
+    }
+    public static boolean getBoolean(String[] truthyValues, String[] falsyValues){
+        String input = getString(Convert.toArray(truthyValues, falsyValues));
+
+        return Arrays.asList(truthyValues).contains(input);
+    }
+
+    public static boolean getBoolean(String truthy, String falsy){
+        String input = getString(truthy, falsy);
+
+        return truthy.equalsIgnoreCase(input);
+    }
+
     /**
      * <p>Attempts to convert the value of the passed parameter to an Integer value.</p>
      *
