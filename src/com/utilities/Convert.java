@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Convert {
 
@@ -21,7 +22,7 @@ public class Convert {
         for(String[] arr : stringArrs)
             newStrings.addAll(Arrays.asList(arr));
 
-        return newStrings.toArray(new String[0]);
+        return newStrings.toArray(String[]::new); // new String[0]
     }
 
     public static List<Integer> toList(int... ints){

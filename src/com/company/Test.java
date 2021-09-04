@@ -36,12 +36,11 @@ public class Test {
 
     public static void testInput(){
         System.out.println("getBoolean");
-//        System.out.println(Input.getBoolean(Convert.toArray("y"), Convert.toArray("n")));
         System.out.println(Input.getBoolean("y", "n"));
     }
 
     public static void main(String[] args) {
 	    // write your code here
-        testInput();
+        testConvert();
     }
 }
