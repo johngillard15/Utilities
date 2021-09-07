@@ -27,33 +27,34 @@ public class UI {
      * @param listElements the information to listerate
      */
     public static void listerator(int listType, int subLevel, String... listElements){
-        String subLevelIndent = "";
-        for(int i = 0; i < subLevel; i++)
-            subLevelIndent += "\t";
+        StringBuilder subLevelIndent = new StringBuilder();
+        subLevelIndent.append("\t".repeat(Math.max(0, subLevel)));
+
+        StringBuilder list = new StringBuilder();
 
         switch(listType){
             case 1 -> { // number
                 int listNum = 0;
-                for(String option : listElements){
-                    System.out.printf("%s%d. %s\n", subLevelIndent, ++listNum, option);
-                }
+                for(String option : listElements)
+                     list.append(String.format("%s%d. %s\n", subLevelIndent, ++listNum, option));
             }
             case 2 -> { // letter
-                for(int i = 0; i < listElements.length; i++){
-                    System.out.printf("%s%s. %s\n", subLevelIndent, getLetterValue(i), listElements[i]);
-                }
+                for(int i = 0; i < listElements.length; i++)
+                    list.append(String.format("%s%s. %s\n", subLevelIndent, getLetterValue(i), listElements[i]));
             }
             case 3 -> { // numeral
 
             }
             case 4 -> { // bullet
-                for(String option : listElements){
-                    System.out.printf("%s• %s\n", subLevelIndent, option);
-                }
+                for(String option : listElements)
+                    list.append(String.format("%s• %s\n", subLevelIndent, option));
             }
 
             default -> throw new IllegalStateException("Invalid list type: " + listType);
         }
+
+        System.out.println(list);
+//        return list;
     }
 
     /**
