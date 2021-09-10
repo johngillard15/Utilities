@@ -35,7 +35,7 @@ public interface ANSI {
      * @throws IllegalStateException if the requested code does not exist as a field in ANSI
      */
     static String getCode(String code){
-        return switch(code){
+        return switch(code.toUpperCase().trim()){
             case "RESET" -> RESET;
             case "BLACK" -> BLACK;
             case "RED" -> RED;
