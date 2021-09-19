@@ -47,7 +47,10 @@ public class UI {
                     list.append(String.format("%s%s. %s\n", subLevelIndent, getLetterValue(i), listElements[i]));
             }
             case 3 -> { // numeral
-
+                for(int i = 0; i < listElements.length; i++){
+                    list.append(String.format("%s%s. %s\n",
+                            subLevelIndent, Convert.toRomanNumeral(i + 1).toLowerCase(), listElements[i]));
+                }
             }
             case 4 -> { // bullet
                 for(String option : listElements)
