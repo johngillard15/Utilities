@@ -1,6 +1,8 @@
 package com.utilities;
 
 import java.util.Scanner;
+import java.util.Timer;
+import java.util.concurrent.TimeUnit;
 
 /**
  * <p>Provides tools that help to improve the output of a terminal based program.</p>
@@ -27,5 +29,21 @@ public class CLI {
     public static void pause(){
         System.out.println("\nPress enter to continue...");
         scan.nextLine();
+    }
+
+    // TODO: make a wait method
+
+    /**
+     * <p>Waits a defined number of seconds.</p>
+     *
+     * @param seconds the number of seconds to wait
+     */
+    public static void delay(int seconds){
+        try{
+            TimeUnit.SECONDS.sleep(seconds);
+        }
+        catch(InterruptedException e){
+            e.printStackTrace();
+        }
     }
 }
