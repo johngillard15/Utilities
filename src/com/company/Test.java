@@ -1,9 +1,7 @@
 package com.company;
 
-import com.utilities.Input;
+import com.utilities.*;
 import com.utilities.Math;
-import com.utilities.Convert;
-import com.utilities.UI;
 
 import java.util.Arrays;
 
@@ -39,8 +37,14 @@ public class Test {
         System.out.println(Input.getBoolean("y", "n"));
     }
 
+    public static void testCLI(){
+        System.out.println("Starting...");
+        CLI.delay(3);
+        System.out.println("Done.");
+    }
+
     public static void main(String[] args) {
 	    // write your code here
-        testUI();
+        testCLI();
     }
 }
