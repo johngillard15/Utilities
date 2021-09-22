@@ -43,8 +43,12 @@ public class Test {
         System.out.println("Done.");
     }
 
+    public static void testAnsi(){
+        System.out.printf("%s, World!", ANSI.format("Hello","LOW_INTESITY"));
+    }
+
     public static void main(String[] args) {
 	    // write your code here
-        testCLI();
+        testAnsi();
     }
 }
