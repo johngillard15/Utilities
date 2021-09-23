@@ -1,8 +1,10 @@
 package com.utilities;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.NoSuchElementException;
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
@@ -15,14 +17,12 @@ import java.util.stream.Collectors;
 public enum ANSI {
     RESET("\u001B[0m"),
 
+    BOLD("\u001B[1m")/* HIGH_INTENSITY */,
     HIGH_INTENSITY("\u001B[1m"),
     LOW_INTENSITY("\u001B[2m"),
     ITALIC("\u001B[3m"),
     UNDERLINE("\u001B[4m"),
-    BLINK("\u001B[5m"),
-    RAPID_BLINK("\u001B[6m"),
-    REVERSE_VIDEO("\u001B[7m"),
-    HIDE("\u001B[8m"),
+    INVERT("\u001B[7m"),
 
     BLACK("\u001B[30m"),
     BLUE("\u001B[34m"),
@@ -84,11 +84,21 @@ public enum ANSI {
             throw new NoSuchElementException("Code \"" + color + "\" does not exist.");
     }
 
-    public static String format(String str, String... formatting){
-        String formats = Arrays.stream(formatting).map(ANSI::getCode).collect(Collectors.joining());
-
+    public static String format(String str, ANSI... codes) {
+        String formats = Arrays.stream(codes).map(ANSI::toString).collect(Collectors.joining());
         return formats + str + RESET;
     }
+    public static String format(String str, String... formatting){
+        String formats = Arrays.stream(formatting).map(ANSI::getCode).collect(Collectors.joining());
+        return formats + str + RESET;
+
+//        Function<String, String> reformatter = ANSI::getCode;
+//        return format(str, reformatter, formatting);
+    }
+//    public static String format(String str, Function<String, String> reformatter, String... stuff) {
+//        String formats = Arrays.stream(stuff).map(reformatter).collect(Collectors.joining());
+//        return formats + str + RESET;
+//    }
 
     @Override
     public String toString(){

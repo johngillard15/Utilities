@@ -44,7 +44,11 @@ public class Test {
     }
 
     public static void testAnsi(){
-        System.out.printf("%s, World!", ANSI.format("Hello","LOW_INTESITY"));
+        System.out.println(ANSI.ITALIC.toString() + ANSI.BLUE + "Hello, World!" + ANSI.RESET);
+        System.out.printf("%s, World!\n",
+                ANSI.format("Hello","RED", "GREEN_BG", "INVERT", "UNDERLINE", "ITALIC"));
+        System.out.printf("Hello, %s!\n",
+                ANSI.format("World", ANSI.BLUE_BG, ANSI.BOLD));
     }
 
     public static void main(String[] args) {
